@@ -1,0 +1,53 @@
+{
+  "name": "permissions-center-ui",
+  "version": "1.0.0",
+  "description": "UI service for the Permissions Center app",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "dev": "NODE_ENV=development node --harmony server",
+    "start": "NODE_ENV=production node --harmony server",
+    "prebuild": "mkdir -p dist/{js,css,img}",
+
+    "build": "npm-run-all build:js build:css build:assets",
+    "build:js": "./node_modules/.bin/webpack --progress --colors",
+    "build:css": "./node_modules/.bin/sass --style=compressed client/sass/main.scss dist/css/styles.css",
+    "build:assets": "rsync -a client/assets/* dist",
+
+    "watch": "npm-run-all -p -r -l watch:css watch:js",
+    "watch:js": "./node_modules/.bin/webpack --watch --progress --colors",
+    "watch:css": "./node_modules/.bin/sass --watch --style=compressed client/sass/main.scss:dist/css/styles.css",
+
+    "postinstall": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.disney.com/PermissionsCenter/permissions-center-ui.git"
+  },
+  "keywords": [
+    "epc",
+    "permissions",
+    "center",
+    "nodejs",
+    "JavaScript",
+    "react"
+  ],
+  "author": "Garth Henson",
+  "license": "MIT",
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "npm-run-all": "^4.0.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "sass": "^0.5.0",
+    "webpack": "^2.3.2"
+  },
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "hapi-and-healthy": "^4.6.1",
+    "inert": "^4.1.0",
+    "newrelic": "^1.38.1",
+    "pug": "^2.0.0-beta11",
+    "vision": "^4.1.1"
+  }
+}
