@@ -8,16 +8,13 @@
     "dev": "NODE_ENV=development node --harmony server",
     "start": "NODE_ENV=production node --harmony server",
     "prebuild": "mkdir -p dist/{js,css,img}",
-
     "build": "npm-run-all build:js build:css build:assets",
     "build:js": "./node_modules/.bin/webpack --progress --colors",
-    "build:css": "./node_modules/.bin/sass --style=compressed client/sass/main.scss dist/css/styles.css",
+    "build:css": "./node_modules/.bin/node-sass --output-style=compressed client/sass/main.scss dist/css/styles.css",
     "build:assets": "rsync -a client/assets/* dist",
-
     "watch": "npm-run-all -p -r -l watch:css watch:js",
     "watch:js": "./node_modules/.bin/webpack --watch --progress --colors",
-    "watch:css": "./node_modules/.bin/sass --watch --style=compressed client/sass/main.scss:dist/css/styles.css",
-
+    "watch:css": "./node_modules/.bin/node-sass --watch --output-style=compressed client/sass/main.scss dist/css/styles.css",
     "postinstall": "npm run build"
   },
   "repository": {
@@ -36,10 +33,10 @@
   "license": "MIT",
   "devDependencies": {
     "jsx-loader": "^0.13.2",
+    "node-sass": "^4.5.1",
     "npm-run-all": "^4.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "sass": "^0.5.0",
     "webpack": "^2.3.2"
   },
   "dependencies": {
