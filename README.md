@@ -22,3 +22,22 @@ $ docker run -it --rm -p 4118:4118 epc-ui-1.0.0
 ```
 
 At this point, you will be able to navigate to the same URL (`http://localhost:4118`), now hosted via Docker.
+
+## Unit Testing
+Unit tests are configured to run on both client and server code using mocha. The following commands are all supported:
+
+```bash
+# client
+$ npm run test:client
+
+# server
+$ npm run test:server
+
+# both client & server
+$ npm test
+
+# code coverage report (client)
+$ npm run coverage
+```
+
+If you execute code coverage, the results will be placed in `/app/coverage` in the form of a consumable JSON file and a viewable HTML page.
