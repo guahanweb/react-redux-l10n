@@ -78,8 +78,8 @@
       ".js"
     ],
     "reporter": [
+      "json",
       "html",
-      "lcov",
       "text"
     ]
   }
