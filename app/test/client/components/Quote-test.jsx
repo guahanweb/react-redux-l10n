@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow, mount, render} from 'enzyme';
 import Quote from '../../../client/src/components/Quote';
 
-describe('A suite', function () {
+describe('Quote Component:', function () {
   it('tests shallow rendering', function () {
     expect(shallow(<Quote quote="foo" by="bar" />).contains(
       <header className="quote">
