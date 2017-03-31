@@ -1,5 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Quote from './components/Quote';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,11 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="comp comp-app">
-        <header>
-          <h1>It&apos;s kind of fun to do<br />
-          the impossible!</h1>
-          <h2>Walt Disney</h2>
-        </header>
+        <Quote quote="It's kind of fun to do the impossible!" by="Walt Disney" />
       </div>
     );
   }
