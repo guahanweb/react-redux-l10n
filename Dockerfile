@@ -11,8 +11,15 @@ RUN mkdir -p /app
 
 COPY app/package.json /app/
 WORKDIR /app
-RUN npm i --only-prod --ignore-scripts --silent --depth=0
 COPY app /app
+
+# run tests and then clean up
+RUN npm i
+RUN npm test
+RUN rm -rf node_modules
+
+# run prod-only install
+RUN npm i --only-prod --ignore-scripts --silent --depth=0
 
 RUN chown -R node:node /app
 
