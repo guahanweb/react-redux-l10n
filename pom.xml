@@ -21,10 +21,7 @@
     <!-- docker info -->
     <docker.registry>segds-docker-registry.lns.starwave.com</docker.registry>
     <docker-maven-plugin.version>0.13.9</docker-maven-plugin.version>
-    <docker.image.name>
-      oneid/permissions-center-ui:${project.version}
-    </docker.image.name>
-    <docker.build.dir>${project.build.directory}/DockerBuild</docker.build.dir>
+    <docker.image.name>permissions-center-ui</docker.image.name>
 
     <!-- Needed for build timestamp to be included with version -->
     <timestamp>${maven.build.timestamp}</timestamp>
@@ -46,7 +43,18 @@
                 </goals>
                 <configuration>
                   <executable>docker</executable>
-                  <commandlineArgs>build -t ${docker.image.name} .</commandlineArgs>
+                  <commandlineArgs>build -t ${docker.image.name}:${project.version} .</commandlineArgs>
+                </configuration>
+              </execution>
+              <execution>
+                <id>docker_tag</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>docker</executable>
+                  <commandlineArgs>tag ${docker.image.name}:${project.version} ${docker.registry}/oneid/${docker.image.name}:${project.version}</commandlineArgs>
                 </configuration>
               </execution>
               <execution>
