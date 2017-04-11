@@ -29,40 +29,6 @@
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
   </properties>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>exec-maven-plugin</artifactId>
-        <groupId>org.codehaus.mojo</groupId>
-        <version>${exec-maven-plugin.version}</version>
-          <executions>
-            <execution>
-              <id>docker_build</id>
-              <phase>compile</phase>
-              <goals>
-                <goal>exec</goal>
-              </goals>
-              <configuration>
-                <executable>build.sh</executable>
-                <commandlineArgs>build ${docker.tag}</commandlineArgs>
-              </configuration>
-            </execution>
-            <execution>
-              <id>docker_push</id>
-              <phase>compile</phase>
-              <goals>
-                <goal>exec</goal>
-              </goals>
-              <configuration>
-                <executable>build.sh</executable>
-                <commandlineArgs>push ${docker.tag} ${docker.registry}</commandlineArgs>
-              </configuration>
-            </execution>
-          </executions>
-      </plugin>
-    </plugins>
-  </build>
-
   <profiles>
     <profile>
       <id>BuildPipelinePR</id>
