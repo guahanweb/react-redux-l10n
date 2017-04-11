@@ -10,7 +10,7 @@ login=$(docker login -u $SEGDS_REGISTRY_USERNAME -p $SEGDS_REGISTRY_PASSWORD seg
 # create docker image
 tag=$PROJECT":"$VERSION
 echo "DOCKER: building tag $tag..."
-res=$(docker build -t $PROJECT:$VERSION)
+res=$(docker build -t $PROJECT:$VERSION $BUILD_DIR)
 
 # push docker image
 echo "DOCKER: pushing new image..."
