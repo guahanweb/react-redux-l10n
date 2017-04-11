@@ -1,17 +1,46 @@
 #!/usr/bin/env bash
-PROJECT=$1;
-VERSION=$2;
-BUILD_DIR=$3;
+cmd=$1
 
-# log into docker
-echo "DOCKER: logging into registry..."
-login=$(docker login -u $SEGDS_REGISTRY_USERNAME -p $SEGDS_REGISTRY_PASSWORD segds-docker-registry.lns.starwave.com)
+case "$1" in
+    build)
+        tag=$2
+        echo "Building docker image..."
+        res=$(docker build -t $tag .)
+        rc=$?
 
-# create docker image
-tag=$PROJECT":"$VERSION
-echo "DOCKER: building tag $tag..."
-res=$(docker build -t $PROJECT:$VERSION $BUILD_DIR)
+        if [[ $rc != 0 ]]; then
+            echo "ERROR ENCOUNTERED:"
+            echo $res
+            exit $rc
+        fi
+        ;;
 
-# push docker image
-echo "DOCKER: pushing new image..."
-push=$(docker push $PROJECT)
+    push)
+        tag=$2
+        host=$3
+        user=$SEGDS_REGISTRY_USERNAME
+        pass=$SEGDS_REGISTRY_PASSWORD
+
+        # log in to secure docker registry
+        res=$(docker login -u $SEGDS_REGISTRY_USERNAME -p $SEGDS_REGISTRY_PASSWORD $host)
+        rc=$?
+
+        if [[ $rc != 0 ]]; then
+            echo "COULD NOT LOG INTO $host"
+            echo $res
+            exit $rc
+        fi
+
+        res=$(docker push $tag)
+        rc=$?
+
+        if [[ $rc != 0 ]]; then
+            echo "COULD NOT PUSH IMAGE"
+            echo $res
+            exit $rc
+        fi
+        ;;
+    *)
+        echo $"Usage: $0 {build|push}"
+        exit 1
+esac
