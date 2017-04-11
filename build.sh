@@ -22,6 +22,7 @@ case "$1" in
         pass=$SEGDS_REGISTRY_PASSWORD
 
         # log in to secure docker registry
+        echo "Logging into registry..."
         res=$(docker login -u $SEGDS_REGISTRY_USERNAME -p $SEGDS_REGISTRY_PASSWORD $host)
         rc=$?
 
@@ -31,6 +32,7 @@ case "$1" in
             exit $rc
         fi
 
+        echo "Pushing newly built image..."
         res=$(docker push $tag)
         rc=$?
 
