@@ -1,4 +1,4 @@
-# Permissions Center UI
+<h1><img src="https://jenkins.cd.go.com/buildStatus/icon?job=dtss.permissionscenter.ui.pr" align="right" style="float: right" /><span>Permissions Center UI</span></h1>
 
 ## Quick Start
 
