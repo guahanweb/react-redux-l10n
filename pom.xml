@@ -76,7 +76,7 @@
                 </goals>
                 <configuration>
                   <executable>docker</executable>
-                  <commandlineArgs>push ${docker.registry}/${docker.image.name}</commandlineArgs>
+                  <commandlineArgs>push ${docker.registry}/oneid/${docker.image.name}:${project.version}</commandlineArgs>
                 </configuration>
               </execution>
             </executions>
