@@ -1,6 +1,6 @@
 'use strict';
 
-var quotes = require('../data/quotes.json').quotes;
+var quotes = require('../data/quotes.json');
 
 module.exports = {
     switchQuote: switchQuote
