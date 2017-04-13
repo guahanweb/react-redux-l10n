@@ -41,7 +41,7 @@
               <executions>
                 <execution>
                   <id>unit_tests</id>
-                  <phase>test</phase>
+                  <phase>compile</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
@@ -66,7 +66,7 @@
               <executions>
                 <execution>
                   <id>docker_build</id>
-                  <phase>compile</phase>
+                  <phase>prepare</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
@@ -77,7 +77,7 @@
                 </execution>
                 <execution>
                   <id>docker_push</id>
-                  <phase>compile</phase>
+                  <phase>perform</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
