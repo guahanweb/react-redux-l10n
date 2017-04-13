@@ -31,7 +31,7 @@
 
   <profiles>
     <profile>
-      <id>BuildPipelinePR</id>
+      <id>RunUnitTests</id>
       <build>
         <plugins>
           <plugin>
@@ -56,7 +56,7 @@
     </profile>
 
     <profile>
-      <id>BuildPipelineSnapshot</id>
+      <id>RunDockerPush</id>
       <build>
         <plugins>
           <plugin>
