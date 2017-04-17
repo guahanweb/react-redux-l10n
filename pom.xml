@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.disney.permissionscenter</groupId>
   <artifactId>epc-ui</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.0.5</version>
   <packaging>pom</packaging>
   <name>Permissions Center UI</name>
 
@@ -11,7 +11,7 @@
     <connection>scm:git:git@github.disney.com:PermissionsCenter/permissions-center-ui.git</connection>
     <url>scm:git:git@github.disney.com:PermissionsCenter/permissions-center-ui.git</url>
     <developerConnection>scm:git:git@github.disney.com:PermissionsCenter/permissions-center-ui.git</developerConnection>
-    <tag>permissions-center-ui-0.0.1</tag>
+    <tag>epc-ui-0.0.5</tag>
   </scm>
 
   <properties>
