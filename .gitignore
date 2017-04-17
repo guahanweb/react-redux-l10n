@@ -3,3 +3,5 @@ node_modules
 app/newrelic_agent.log
 .sass-cache
 .nyc_output
+.idea
+epc-ui.iml
