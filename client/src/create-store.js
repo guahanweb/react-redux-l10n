@@ -6,10 +6,7 @@ const finalCreateStore = Redux.applyMiddleware(
 )(Redux.createStore);
 
 // import and apply reducers here
-//
-const reducer = Redux.combineReducers({
-    currentQuote: require('./reducers/quotes')
-});
+const reducer = require('./reducers');
 
 module.exports = () => {
     let store = finalCreateStore(reducer);
