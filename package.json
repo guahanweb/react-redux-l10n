@@ -15,6 +15,7 @@
     "build:js": "./node_modules/.bin/webpack --progress --colors",
     "build:css": "./node_modules/.bin/node-sass --output-style=compressed client/sass/main.scss dist/css/styles.css",
     "build:assets": "rsync -a client/assets/* dist",
+    "build:html": "pug --pretty --out dist server/templates/index.pug",
     "start": "NODE_ENV=production node --harmony server",
     "watch": "npm-run-all -p -r -l watch:css watch:js",
     "watch:js": "./node_modules/.bin/webpack --watch --progress --colors",
@@ -68,6 +69,7 @@
     "newrelic": "^1.38.1",
     "prop-types": "^15.5.8",
     "pug": "^2.0.0-beta11",
+    "pug-cli": "^1.0.0-alpha6",
     "react-redux": "5.0.4",
     "redux": "3.6.0",
     "vision": "^4.1.1"
